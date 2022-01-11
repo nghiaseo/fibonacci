@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {margin: 0 auto;
+      }
+      th {
+        background-color: gray;
+      }
+      #result{
+          line-break: anywhere;
+          width: 400px;
+          letter-spacing: 5px;
+          font-weight: 700;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th colspan="2">In dãy Fibonacci</th>
+      </tr>
+      <tr>
+        <td><label for="num">Nhập số chữ số Fibonacci muốn in :</label></td>
+        <td><input type="number" id="num" /></td>
+      </tr>
+      <tr>
+        <th colspan="2">Kết quả</th>
+      </tr>
+      <tr>
+        <td colspan="2" id="result"></td>
+      </tr>
+    </table>
+
+    <script>
+     ['change','keyup'].forEach(e=>document.getElementById("num").addEventListener(e,()=>{
+        let i = 0;
+        let fib = [];
+        let n =document.getElementById('num').value
+        while (i < n) {
+          if (i == 0 || i == 1) fib.push(1);
+          else {
+            let sum = fib[i - 2] + fib[i - 1];
+            fib.push(sum);
+          }
+          i++;
+        }
+        document.getElementById("result").innerHTML=fib.toString();
+     }))
+    </script>
+  </body>
+</html>
